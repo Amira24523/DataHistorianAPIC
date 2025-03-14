@@ -49,3 +49,4 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_f5c41e6635404f7495f791ee06d817a1 }}
         images: 'index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/cloudapi:${{ github.sha }}'
+        

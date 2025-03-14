@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("P_Cloud_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59c9f9583aff5d5c4dd6f56cfa2c5bb49da5b09f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b79c484a53c1c5e4c9a25be53b667caa9b889815")]
 [assembly: System.Reflection.AssemblyProductAttribute("P_Cloud_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("P_Cloud_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

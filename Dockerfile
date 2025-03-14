@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["/P_Cloud_API.csproj", "P_Cloud_API/"]
+COPY ["P_Cloud_API/P_Cloud_API.csproj", "P_Cloud_API/"]
 RUN dotnet restore "P_Cloud_API/P_Cloud_API.csproj"
 COPY . .
 WORKDIR "/src/P_Cloud_API"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amira\\OneDrive\\Desktop\\P_Cloud_API\\P_Cloud_API\\P_Cloud_API.csproj": {}
+    "C:\\Users\\amira\\GithubRep\\DataHistorianAPIC\\P_Cloud_API\\P_Cloud_API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amira\\OneDrive\\Desktop\\P_Cloud_API\\P_Cloud_API\\P_Cloud_API.csproj": {
+    "C:\\Users\\amira\\GithubRep\\DataHistorianAPIC\\P_Cloud_API\\P_Cloud_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amira\\OneDrive\\Desktop\\P_Cloud_API\\P_Cloud_API\\P_Cloud_API.csproj",
+        "projectUniqueName": "C:\\Users\\amira\\GithubRep\\DataHistorianAPIC\\P_Cloud_API\\P_Cloud_API.csproj",
         "projectName": "P_Cloud_API",
-        "projectPath": "C:\\Users\\amira\\OneDrive\\Desktop\\P_Cloud_API\\P_Cloud_API\\P_Cloud_API.csproj",
+        "projectPath": "C:\\Users\\amira\\GithubRep\\DataHistorianAPIC\\P_Cloud_API\\P_Cloud_API.csproj",
         "packagesPath": "C:\\Users\\amira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amira\\OneDrive\\Desktop\\P_Cloud_API\\P_Cloud_API\\obj\\",
+        "outputPath": "C:\\Users\\amira\\GithubRep\\DataHistorianAPIC\\P_Cloud_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amira\\AppData\\Roaming\\NuGet\\NuGet.Config"

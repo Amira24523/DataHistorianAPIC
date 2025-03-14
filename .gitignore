@@ -1,0 +1,41 @@
+# Kompilierte Ausgabedateien
+bin/
+obj/
+
+# Visual Studio spezifische Dateien
+.vs/
+*.user
+*.suo
+*.sln.docstates
+*.vsproj.user
+
+# Build-Ergebnisse
+*.exe
+*.dll
+*.pdb
+*.cache
+
+# Ordner für NuGet-Pakete
+packages/
+
+# Test-Ergebnisse
+TestResults/
+
+# Editor-spezifische Konfigurationen
+.idea/
+*.iws
+*.ipr
+*.iml
+
+# Betriebssystem-spezifische Dateien
+[Tt]humbs.db
+*.DS_Store
+
+# Benutzerdefinierte Konfigurationsdateien (falls zutreffend)
+*.config
+
+# Zusätzlicher Config Ordner falls keine wichtigen Server-Konfigurationen enthalten sind.
+.config/
+
+# Falls der Ordner "Properties" keine wichtigen Server-Konfigurationen beinhaltet
+Properties/

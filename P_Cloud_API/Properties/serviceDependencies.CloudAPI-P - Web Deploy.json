@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/cloud-api-x/databases/cloud-api-x",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:CloudApiDB",
+      "dynamicId": null
+    },
+    "apis1": {
+      "apiEndpoint": "https://pcloudapiapi.azure-api.net/",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/PCloudAPIapi/apis/PCloudAPI",
+      "type": "apis.azure"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\P_Cloud_API.exe
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\appsettings.Development.json
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\appsettings.json
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\P_Cloud_API.dll
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\P_Cloud_API.deps.json
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\P_Cloud_API.runtimeconfig.json
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\P_Cloud_API.pdb
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\Microsoft.OpenApi.dll
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\brizz\Desktop\Cloud_API\P_Cloud_API\P_Cloud_API\obj\Docker\publish\Swashbuckle.AspNetCore.SwaggerUI.dll

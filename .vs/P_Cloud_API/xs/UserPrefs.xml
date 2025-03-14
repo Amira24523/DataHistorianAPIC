@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{48A22AC2-DAEF-42E3-B0F9-EC4B8FF4EB8A}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="P_Cloud_API/Models/ControlModule.cs">
+    <Files>
+      <File FileName="P_Cloud_API/Controllers/ControlModuleController.cs" Line="33" Column="40" />
+      <File FileName="P_Cloud_API/Controllers/ProcessDataController.cs" Line="34" Column="1" />
+      <File FileName="P_Cloud_API/Models/ControlModule.cs" Line="26" Column="57" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="P_Cloud_API" expanded="True">
+            <Node name="P_Cloud_API" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.P__Cloud__API PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

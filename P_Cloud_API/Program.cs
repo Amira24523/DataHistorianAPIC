@@ -19,7 +19,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<cloudapixContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("cloud-api"), options => options.EnableRetryOnFailure()));
+options.UseSqlServer(builder.Configuration.GetConnectionString("cloud-api-x"), options => options.EnableRetryOnFailure()));
 builder.Services.AddMvc(option => option.EnableEndpointRouting = false).AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
 builder.Services.AddAuthentication("BasicAuthentication")

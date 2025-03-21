@@ -29,14 +29,6 @@ namespace P_Cloud_API.Models
         public virtual DbSet<Status> Statuses { get; set; } = null!;
         public virtual DbSet<Unit> Units { get; set; } = null!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Name=cloud-api-x");
-            }
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Area>(entity =>

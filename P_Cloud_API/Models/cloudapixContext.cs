@@ -33,7 +33,7 @@ namespace P_Cloud_API.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Name=CloudApiDB");
+                optionsBuilder.UseSqlServer("Name=cloud-api-x");
             }
         }
 

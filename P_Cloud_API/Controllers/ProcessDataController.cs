@@ -75,51 +75,37 @@ namespace P_Cloud_API.Controllers
             [FromQuery] DateTime? start = null,
             [FromQuery] DateTime? end = null)
         {
-            DateTime minDate = new DateTime(1753, 1, 1); // SQL Server min date
-            DateTime maxDate = new DateTime(9999, 12, 31, 23, 59, 59); // SQL Server max date
+            DateTime minDate = new DateTime(1753, 1, 1);
+            DateTime maxDate = new DateTime(9999, 12, 31, 23, 59, 59);
 
-            // 1. Validierung: Mindestens eine ID muss angegeben werden.
             if (!enterpriseId.HasValue && !areaId.HasValue)
             {
                 return BadRequest("Either EnterpriseId or AreaId must be provided.");
             }
 
-            // 2. Zeitrahmen-Logik (wie vorher)
-            if (!start.HasValue)
-            {
-                start = minDate;
-            }
-            if (!end.HasValue)
-            {
-                end = maxDate;
-            }
+            if (!start.HasValue)  start = minDate;
+            if (!end.HasValue) end = maxDate;
 
-            // 3. Filtern der ControlModuleIds (Verbesserte Version)
+
             IQueryable<ProcessData> query = _context.ProcessData;
-
-            // Hilfsfunktion um doppelten Code zu verhindern
-            IQueryable<ProcessData> FilterByControlModule(IQueryable<ProcessData> currentQuery, Func<ControlModule, bool> predicate)
-            {
-                return currentQuery.Where(pd => _context.ControlModules.Any(cm => predicate(cm) && cm.Id == pd.ControlModuleId));
-            }
 
             if (enterpriseId.HasValue)
             {
-                query = FilterByControlModule(query, cm => cm.EquipmentModule.Unit.ProcessCell.Area.Site.EnterpriseId == enterpriseId.Value);
+                query = query.Where(pd => _context.ControlModules.Any(cm =>
+                    cm.EquipmentModule.Unit.ProcessCell.Area.Site.EnterpriseId == enterpriseId.Value &&
+                    cm.Id == pd.ControlModuleId));
             }
+
             if (areaId.HasValue)
             {
-                query = FilterByControlModule(query, cm => cm.EquipmentModule.Unit.ProcessCell.AreaId == areaId.Value);
+                query = query.Where(pd => _context.ControlModules.Any(cm =>
+                    cm.EquipmentModule.Unit.ProcessCell.AreaId == areaId.Value &&
+                    cm.Id == pd.ControlModuleId));
             }
 
-
-            // 4. Filtern nach Zeitrahmen
             query = query.Where(r => r.Timestamp >= start && r.Timestamp <= end);
-
-            // 5. Inkludieren von EditType und Status
             query = query.Include(x => x.EditType).Include(x => x.Status);
 
-            // 6. Ausführen der Abfrage und Rückgabe.
             var records = await query.ToListAsync();
 
             if (!records.Any())

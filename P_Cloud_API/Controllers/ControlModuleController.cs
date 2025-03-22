@@ -51,6 +51,7 @@ namespace P_Cloud_API.Controllers
         public async Task<ActionResult<IEnumerable<ControlModule>>> GetControlModules()
         {
             return await _context.ControlModules
+                .Include(cm => cm.ControlModuleInfo)
                 .ToListAsync();
         }
 

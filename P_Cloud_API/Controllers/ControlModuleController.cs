@@ -47,6 +47,13 @@ namespace P_Cloud_API.Controllers
             return controlModule;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ControlModule>>> GetControlModules()
+        {
+            return await _context.ControlModules
+                .ToListAsync();
+        }
+
         // PUT: api/ControlModules/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutControlModule(int id, ControlModuleInfo controlModuleInfo)

@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: registry-1.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b2299744783411bad22f637dee77954 }}/cloudapi:${{ github.sha }}
+        tags: registry-1.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b2299744783411bad22f637dee77954 }}/cloud-api-p:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'cloudapi-p'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_e3403c36c2184124bf3872e2791e9ae3 }}
-        images: 'registry-1.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b2299744783411bad22f637dee77954 }}/cloudapi:${{ github.sha }}'
+        images: 'registry-1.docker.io/${{ secrets.AzureAppService_ContainerUsername_1b2299744783411bad22f637dee77954 }}/cloud-api-p:${{ github.sha }}'

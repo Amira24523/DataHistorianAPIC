@@ -26,7 +26,7 @@ namespace P_Cloud_API.Controllers
         }
 
         // GET: api/ProcessData/5
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<ProcessData>>> GetRecordsInTimeframe(int id, DateTime? start = null, DateTime? end = null)
         {
             DateTime minDate = new DateTime(1753, 1, 1); // das kleinste Datum, das von SQL Server unterstützt wird
@@ -68,6 +68,67 @@ namespace P_Cloud_API.Controllers
             return NotFound();
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ProcessData>>> GetRecordsByEnterpriseOrArea(
+            [FromQuery] int? enterpriseId = null,
+            [FromQuery] int? areaId = null,
+            [FromQuery] DateTime? start = null,
+            [FromQuery] DateTime? end = null)
+        {
+            DateTime minDate = new DateTime(1753, 1, 1); // SQL Server min date
+            DateTime maxDate = new DateTime(9999, 12, 31, 23, 59, 59); // SQL Server max date
+
+            // 1. Validierung: Mindestens eine ID muss angegeben werden.
+            if (!enterpriseId.HasValue && !areaId.HasValue)
+            {
+                return BadRequest("Either EnterpriseId or AreaId must be provided.");
+            }
+
+            // 2. Zeitrahmen-Logik (wie vorher)
+            if (!start.HasValue)
+            {
+                start = minDate;
+            }
+            if (!end.HasValue)
+            {
+                end = maxDate;
+            }
+
+            // 3. Filtern der ControlModuleIds (Verbesserte Version)
+            IQueryable<ProcessData> query = _context.ProcessData;
+
+            // Hilfsfunktion um doppelten Code zu verhindern
+            IQueryable<ProcessData> FilterByControlModule(IQueryable<ProcessData> currentQuery, Func<ControlModule, bool> predicate)
+            {
+                return currentQuery.Where(pd => _context.ControlModules.Any(cm => predicate(cm) && cm.Id == pd.ControlModuleId));
+            }
+
+            if (enterpriseId.HasValue)
+            {
+                query = FilterByControlModule(query, cm => cm.EquipmentModule.Unit.ProcessCell.Area.Site.EnterpriseId == enterpriseId.Value);
+            }
+            if (areaId.HasValue)
+            {
+                query = FilterByControlModule(query, cm => cm.EquipmentModule.Unit.ProcessCell.AreaId == areaId.Value);
+            }
+
+
+            // 4. Filtern nach Zeitrahmen
+            query = query.Where(r => r.Timestamp >= start && r.Timestamp <= end);
+
+            // 5. Inkludieren von EditType und Status
+            query = query.Include(x => x.EditType).Include(x => x.Status);
+
+            // 6. Ausführen der Abfrage und Rückgabe.
+            var records = await query.ToListAsync();
+
+            if (!records.Any())
+            {
+                return NotFound("No records found matching the specified criteria.");
+            }
+
+            return records;
+        }
 
         // POST: api/ProcessData
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

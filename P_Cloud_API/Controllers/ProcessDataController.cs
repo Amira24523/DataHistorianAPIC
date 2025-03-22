@@ -26,7 +26,7 @@ namespace P_Cloud_API.Controllers
         }
 
         // GET: api/ProcessData/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<ProcessData>>> GetRecordsInTimeframe(int id, DateTime? start = null, DateTime? end = null)
         {
             DateTime minDate = new DateTime(1753, 1, 1); // das kleinste Datum, das von SQL Server unterstützt wird

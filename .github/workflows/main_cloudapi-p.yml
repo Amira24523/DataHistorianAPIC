@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://registry-1.docker.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_8a88c92f429e46118c83f66f9c935c67 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_40ac50f885174cc7a04a3275abdad701 }}
+        username: ${{ secrets.secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.Asecrets.DOCKERHUB_PASSWORD }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: registry-1.docker.io/${{ secrets.AzureAppService_ContainerUsername_8a88c92f429e46118c83f66f9c935c67 }}/cloud-api-p:${{ github.sha }}
+        tags: registry-1.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/cloud-api-p:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:

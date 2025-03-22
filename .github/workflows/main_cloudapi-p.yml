@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_bec535b94d11495786d220014b7f8ebe }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_01386fe3ea8e4a188b334fee75391afa }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_7656dafe842e40ce982015fe3595adf3 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_c166ad40494f42d4bf3a98d167879289 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bec535b94d11495786d220014b7f8ebe }}/cloud-api-p:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7656dafe842e40ce982015fe3595adf3 }}/dhbwloerrach/cloud-api-p:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'cloudapi-p'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_cca59fe4a9d14536a5839d773973c374 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bec535b94d11495786d220014b7f8ebe }}/cloud-api-p:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_798aed71468f44719f56e845773455df }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_7656dafe842e40ce982015fe3595adf3 }}/dhbwloerrach/cloud-api-p:${{ github.sha }}'
